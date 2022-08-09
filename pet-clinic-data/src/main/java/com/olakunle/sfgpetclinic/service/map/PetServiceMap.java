@@ -1,11 +1,12 @@
 package com.olakunle.sfgpetclinic.service.map;
 
 import com.olakunle.sfgpetclinic.models.Pet;
-import com.olakunle.sfgpetclinic.service.CrudService;
+import com.olakunle.sfgpetclinic.service.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService{
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
