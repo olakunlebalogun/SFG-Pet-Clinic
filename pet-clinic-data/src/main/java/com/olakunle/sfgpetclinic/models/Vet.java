@@ -1,5 +1,16 @@
 package com.olakunle.sfgpetclinic.models;
 
-public class Vet extends Person{
+import java.util.HashSet;
+import java.util.Set;
 
+public class Vet extends Person{
+    Set<Speciality> speciality = new HashSet<>();
+
+    public Set<Speciality> getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(Set<Speciality> speciality) {
+        this.speciality = speciality;
+    }
 }
