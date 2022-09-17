@@ -5,5 +5,6 @@ import com.olakunle.sfgpetclinic.models.Owner;
 import java.util.Set;
 
 public interface OwnerService extends CrudService<Owner, Long> {
-    Owner findByLastName();
+    Owner findByLastName(String name);
 }
+

@@ -1,10 +1,7 @@
 package com.olakunle.sfgpetclinic.bootstrap;
 
 import com.olakunle.sfgpetclinic.models.*;
-import com.olakunle.sfgpetclinic.service.OwnerService;
-import com.olakunle.sfgpetclinic.service.PetTypeService;
-import com.olakunle.sfgpetclinic.service.SpecialityService;
-import com.olakunle.sfgpetclinic.service.VetService;
+import com.olakunle.sfgpetclinic.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +13,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -87,6 +86,13 @@ public class DataLoader implements CommandLineRunner {
 
         owner2.getPets().add(corryCat);
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(corryCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("JUst checking in on some kuicty cat");
+
+        visitService.save(catVisit);
 
         System.out.println("saving sets of owners");
 
