@@ -5,6 +5,7 @@ import com.olakunle.sfgpetclinic.models.Pet;
 import com.olakunle.sfgpetclinic.service.OwnerService;
 import com.olakunle.sfgpetclinic.service.PetService;
 import com.olakunle.sfgpetclinic.service.PetTypeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +13,12 @@ import java.util.Set;
 
 @Service
 @Profile({"default", "map"})
+@RequiredArgsConstructor
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
-        this.petTypeService = petTypeService;
-        this.petService = petService;
-    }
+
 
     @Override
     public Set<Owner> findAll() {
@@ -79,7 +78,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
-
 
     }
 
