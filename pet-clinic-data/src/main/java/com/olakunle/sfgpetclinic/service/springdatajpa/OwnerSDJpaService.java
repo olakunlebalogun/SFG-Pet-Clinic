@@ -5,6 +5,7 @@ import com.olakunle.sfgpetclinic.repositories.OwnerRepository;
 import com.olakunle.sfgpetclinic.repositories.PetRepository;
 import com.olakunle.sfgpetclinic.repositories.PetTypeRepository;
 import com.olakunle.sfgpetclinic.service.OwnerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +15,13 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
+@RequiredArgsConstructor
 public class OwnerSDJpaService implements OwnerService {
     private final OwnerRepository ownerRepository;
     private final PetRepository petRepository;
     private final PetTypeRepository petTypeRepository;
 
-    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
-        this.ownerRepository = ownerRepository;
-        this.petRepository = petRepository;
-        this.petTypeRepository = petTypeRepository;
-    }
+
 
     @Override
     public Set<Owner> findAll() {

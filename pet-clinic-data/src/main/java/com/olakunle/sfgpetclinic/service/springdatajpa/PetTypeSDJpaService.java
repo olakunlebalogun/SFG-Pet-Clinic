@@ -3,6 +3,7 @@ package com.olakunle.sfgpetclinic.service.springdatajpa;
 import com.olakunle.sfgpetclinic.models.PetType;
 import com.olakunle.sfgpetclinic.repositories.PetTypeRepository;
 import com.olakunle.sfgpetclinic.service.PetTypeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 @Profile("springdatajpa")
 public class PetTypeSDJpaService implements PetTypeService {
     private final PetTypeRepository petTypeRepository;
 
-    public PetTypeSDJpaService(PetTypeRepository petTypeRepository) {
-        this.petTypeRepository = petTypeRepository;
-    }
+
 
 
     @Override
