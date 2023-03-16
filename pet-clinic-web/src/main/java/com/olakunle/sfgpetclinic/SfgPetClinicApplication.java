@@ -11,11 +11,8 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class SfgPetClinicApplication {
     public static void main(String[] args) {
-        ApplicationContext ctx =   SpringApplication.run(SfgPetClinicApplication.class, args);
+       SpringApplication.run(SfgPetClinicApplication.class, args);
 
-
-        OwnerServiceMap ownerServiceMap = (OwnerServiceMap) ctx.getBean("ownerServiceMap");
-        log.info(ownerServiceMap.findAll().toString());
     }
 
 
