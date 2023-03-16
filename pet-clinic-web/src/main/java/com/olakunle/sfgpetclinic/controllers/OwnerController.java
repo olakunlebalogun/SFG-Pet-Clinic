@@ -30,7 +30,7 @@ public class OwnerController {
     public void setAllowedFields(WebDataBinder webDataBinder) {
         webDataBinder.setDisallowedFields("id");
     }
-//    @GetMapping({"", "/", "index", "ownerIndex.html"})
+//    @GetMapping({"", "/", "index", "index.html"})
 //    public String index(Model model) {
 //        model.addAttribute("owners", ownerService.findAll());
 //        return "owners/ownerIndex";
